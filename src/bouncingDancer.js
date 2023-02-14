@@ -57,8 +57,3 @@ MakeBouncingDancer.prototype.step = function() {
   bounceUp.call(this);
 
 };
-
-
-// toggle() is a jQuery method to show/hide the <span> tag.
-// See http://api.jquery.com/category/effects/ for this and
-// other effects you can use on a jQuery-wrapped html tag.
