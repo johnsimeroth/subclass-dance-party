@@ -20,7 +20,7 @@ var MakeBouncingDancer = function(top, left, timeBetweenSteps) {
     left: left,
     top: top
   };
-  debugger;
+
   this.shape1 = {
     width: '' + (this.width + this.squishOutAmount) + 'px',
     height: '' + (this.height - this.squishDownAmount) + 'px',
