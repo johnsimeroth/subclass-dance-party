@@ -1,8 +1,5 @@
 var MakeBouncingDancer = function(top, left, timeBetweenSteps) {
-
-  MakeDancer.call(this, top, left, timeBetweenSteps);
   this.timeBetweenSteps = timeBetweenSteps;
-
   this.width = 40;
   this.height = 40;
   this.squishOutAmount = 20;
@@ -17,8 +14,8 @@ var MakeBouncingDancer = function(top, left, timeBetweenSteps) {
   this.shape0 = {
     width: '' + this.width + 'px',
     height: '' + this.height + 'px',
-    left: left,
-    top: top
+    left: '+=' + (this.squishOutAmount / 2) + 'px',
+    top: '-=' + (this.squishDownAmount) + 'px'
   };
 
   this.shape1 = {
@@ -28,8 +25,9 @@ var MakeBouncingDancer = function(top, left, timeBetweenSteps) {
     top: '+=' + (this.squishDownAmount) + 'px'
   };
 
+  MakeDancer.call(this, top, left, timeBetweenSteps);
+
   this.$node.css(this.shape0);
-  this.step();
 
 };
 
@@ -47,10 +45,16 @@ MakeBouncingDancer.prototype.step = function() {
   };
 
   var squishOut = function() {
+    if (window.linedUp) {
+      this.lineUp(0);
+    }
     this.$node.animate(this.shape1, this.timeBetweenSteps / 3, 'swing', squishIn.bind(this));
   };
 
   var squishIn = function() {
+    if (window.linedUp) {
+      this.lineUp(0);
+    }
     this.$node.animate(this.shape0, this.timeBetweenSteps / 3, 'swing', bounceUp.bind(this));
   };
 

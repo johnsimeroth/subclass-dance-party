@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.linedUp = false;
 
   $('.addDancerButton').on('click', function(event) {
 
@@ -13,6 +14,17 @@ $(document).ready(function() {
     );
 
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
+
+  $('.lineUpButton').on('click', function(event) {
+    window.linedUp = true;
+    window.dancers.forEach(function(dancer) {
+      // debugger;
+      dancer.lineUp(0);
+    });
+  });
+
+
 });
 

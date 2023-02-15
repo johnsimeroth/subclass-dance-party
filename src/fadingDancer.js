@@ -2,7 +2,6 @@ var MakeFadingDancer = function(top, left, timeBetweenSteps) {
 
   MakeDancer.call(this, top, left, timeBetweenSteps);
   this.timeBetweenSteps = timeBetweenSteps;
-  this.step();
 };
 
 MakeFadingDancer.prototype = Object.create(MakeDancer.prototype);
